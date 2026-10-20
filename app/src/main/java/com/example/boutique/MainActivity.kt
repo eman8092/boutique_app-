@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
             val modelLoader = rememberModelLoader(engine)
             val modelInstance = rememberModelInstance(
                 modelLoader = modelLoader,
-                assetFileLocation = "posed_mannequin.glb"
+                assetFileLocation = "male_body_clean.glb"
             )
 
             SceneView(
