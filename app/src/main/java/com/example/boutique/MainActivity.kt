@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
             val modelLoader = rememberModelLoader(engine)
             val modelInstance = rememberModelInstance(
                 modelLoader = modelLoader,
-                assetFileLocation = "male_body_clean.glb"
+                assetFileLocation = "male_body_walk.glb"
             )
 
             SceneView(
@@ -27,8 +27,15 @@ class MainActivity : ComponentActivity() {
                 engine = engine,
                 modelLoader = modelLoader
             ) {
-                modelInstance?.let {
-                    ModelNode(modelInstance = it, scaleToUnits = 1.6f)
+                modelInstance?.let { instance ->
+                    ModelNode(
+                        modelInstance = instance,
+                        scaleToUnits = 1.6f,
+                        autoAnimate = true,
+                        animationName = "Walk_Loop",
+                        animationLoop = true,
+                        animationSpeed = 1.0f
+                    )
                 }
             }
         }
